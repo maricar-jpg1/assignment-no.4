@@ -1,0 +1,50 @@
+using System;
+using system.Ling;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        List<string> names = new List<string>();
+        string input;
+
+        Console.WriteLine(" Attendance Recorder");
+        Console.WriteLine("Enter student names (type 'done' to finish):");
+
+        while (true)
+        {
+            Console.Write("Name: ");
+            input = Console.ReadLine();
+
+            if (input.Equals("done", StringComparison.OrdinalIgnoreCase))
+                break;
+
+            if (!string.IsNullOrWhiteSpace(input))
+            {
+
+                names.Add(input.ToUpper());
+            }
+            else
+            {
+                Console.WriteLine(" Name cannot be empty.");
+            }
+        }
+
+        Console.WriteLine("\n Attendance List");
+        foreach (string name in names)
+        {
+            Console.WriteLine(name);
+        }
+
+        // Count names starting with 'A'
+        int countA = 0;
+        foreach (string name in names)
+        {
+            if (name.StartsWith("A"))
+                countA++;
+        }
+
+        Console.WriteLine($"\nTotal names starting with 'A': {countA}");
+    }
+}
